@@ -17,7 +17,7 @@ typedef struct _IMAE_DOS_HEADER//  偏移, 意义
 ● 对应PE文件0x3C处指向NT头在文件中的偏移（默认0xB0），即32位及以上系统文件头在文件中真正的偏移
 ```
 
-![img](notesimg/1636176121747-08e3c8ce-cac3-494d-907d-2f9d2006f66a.png)
+![img](./notesimg/1636176121747-08e3c8ce-cac3-494d-907d-2f9d2006f66a.png)
 
 图3-2    IMAGE_DOS_HEADER成员图析
 
@@ -72,7 +72,7 @@ typedef struct _IMAGE_FILE_HEADER{
 #define IMAGE_FILE_BYTES_REVERSED_HI　　　  0x8000　// 大尾方式
 ```
 
-![img](notesimg/1636194696540-d22e0e97-32cf-44c3-9eae-3c3cf44981c4.png)
+![img](./notesimg/1636194696540-d22e0e97-32cf-44c3-9eae-3c3cf44981c4.png)
 
 图3-3    IMAGE_FILE_HEADER成员图析
 
@@ -129,7 +129,7 @@ EP: 被加工后的入口点
       存储了PE中各个表的位置，详情参考IMAGE_DIRECTORY_ENTRY...系列宏
 ```
 
-![img](notesimg/1636199113588-89b027d6-4a36-4f2c-acc9-e1465c195a36.png)
+![img](./notesimg/1636199113588-89b027d6-4a36-4f2c-acc9-e1465c195a36.png)
 
 图3-4    IMAGE_OPTIONAL_HEADER成员图析
 
@@ -160,7 +160,7 @@ typedef struct _IMAGE_SECTION_HEADER {
 } IMAGE_SECTION_HEADER, *PIMAGE_SECTION_HEADER;
 ```
 
-![img](notesimg/1636498229979-8373b50f-ef6e-49b8-89fe-b5106f7c96df.jpeg)
+![img](./notesimg/1636498229979-8373b50f-ef6e-49b8-89fe-b5106f7c96df.jpeg)
 
 图3-5    节属性常用位含义
 
@@ -168,7 +168,7 @@ typedef struct _IMAGE_SECTION_HEADER {
 
 -   -   （1）选项头的地址 + 选项头的大小；
     -   （2） e_lfanew+4+0x14（文件头大小）+0xE0（32位选项头大小）。
-    -   ![img](notesimg/1636208063716-cf5a8c71-2127-4d81-8d56-927018ca2721.png)
+    -   ![img](./notesimg/1636208063716-cf5a8c71-2127-4d81-8d56-927018ca2721.png)
 
 ### （四）数据目录  IMAGE_DATA_DIRECTORY
 
@@ -186,7 +186,7 @@ typedef struct _IMAGE_DATA_DIRECTORY {
 
 ○ Size则指定了该数据块的大小，有时并不是该类型数据的总大小，可能只是该类型数据一个数据项的大小。这两个成员(主要是VirtualAddress)成为了定位各种表的关键，所以一定要知道每个数组元素所指向的数据块类型，以下表格就是它的对应关系：
 
-![image.png](notesimg/1636452211328-c5f57ad7-a1d6-4870-b81f-62fd5bbce4f0.png)
+![image.png](./notesimg/1636452211328-c5f57ad7-a1d6-4870-b81f-62fd5bbce4f0.png)
 
 
 
@@ -194,7 +194,7 @@ typedef struct _IMAGE_DATA_DIRECTORY {
 
 ●定位数据目录的技巧：数据目录向上找10h，+4即为DataDirectory的地址，编译器生成的一般都是10h。
 
-![image.png](notesimg/1636452238728-94b38c9d-27b4-456f-8748-7a2dcedcd0cf.png)
+![image.png](./notesimg/1636452238728-94b38c9d-27b4-456f-8748-7a2dcedcd0cf.png)
 
 
 
@@ -256,7 +256,7 @@ typedef struct _IMAGE_IMPORT_BY_NAME
 
 -   **PE加载后，IAT有变：**加载后的IAT每一项存储的是所对应的导入函数地址。
 
-![img](notesimg/1636077663306-26230106-a29e-45e0-a6f6-a52ca160b05d.png)
+![img](./notesimg/1636077663306-26230106-a29e-45e0-a6f6-a52ca160b05d.png)
 
 -   图3-8    PE加载前后IMP、IAT、INT之间的关系
 
